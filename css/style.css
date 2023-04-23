@@ -1,0 +1,159 @@
+body {
+ font-family: Arial;
+}
+
+.carousel {
+ width: 100%;
+ height: 100%;
+}
+
+.slides {
+ width: 100%;
+ height: 100%;
+ padding: 0px;
+ margin: 0px;
+ list-style-type: none;
+}
+
+.slide {
+ box-sizing: border-box;
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ padding: 40px;
+ font-size: 40px;
+ opacity: 0;
+ z-index: 1;
+ color: #fff;
+ background: #333;
+ transition: opacity 1s;
+}
+
+.active {
+ opacity: 1;
+ z-index: 2;
+}
+
+.slide:nth-of-type(1) {
+ background: red;
+ background-image: url(../img/slide1.jpg);
+}
+
+.slide:nth-of-type(2) {
+ background: orange;
+ background-image: url(../img/slide2.jpg);
+}
+
+.slide:nth-of-type(3) {
+ background: green;
+ background-image: url(../img/slide3.jpg);
+}
+
+.slide:nth-of-type(4) {
+ background: blue;
+ background-image: url(../img/slide4.jpg);
+}
+
+.slide:nth-of-type(5) {
+ background: purple;
+ background-image: url(../img/slide5.jpg);
+}
+
+.indicator,
+.control {
+ display: flex;
+ height: 30px;
+ align-items: center;
+ /* margin: 10px; */
+ color: white;
+ cursor: pointer;
+ justify-content: center;
+ user-select: none;
+}
+
+.indicators,
+.controls {
+ display: flex;
+}
+
+.control {
+ position: absolute;
+ z-index: 2;
+ width: 10%;
+ font-size: 40px;
+ opacity: 50%;
+ height: 100%;
+}
+
+#prev {
+ top: 0%;
+ left: 0%;
+}
+
+#prev:hover,
+#prev:hover {
+ background: linear-gradient( to right,rgba(0, 0, 0, 0.85) 0%,rgba(0, 0, 0, 0) 100%);
+}
+
+#next {
+ right: 0%;
+ top: 0%;
+}
+
+#next:hover,
+#next:focus {
+ background: linear-gradient( to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+#pause {
+ left: 45%;
+ bottom: 50%;
+ height: 0;
+ opacity: 0;
+}
+
+.fa-play-circle,
+.fa-pause-circle {
+ font-size: 40vh;
+}
+
+#pause:hover,
+#pause:focus {
+ transition: opacity 2s ease-in 0.5s;
+ opacity: 60%;
+}
+
+.indicators {
+ position: absolute;
+ left: calc(50% - 120px);
+ bottom: 10px;
+ z-index: 2;
+ width: 300px;
+ margin-bottom: 10px;
+ font-size: 12px;
+}
+
+.indicators div {
+ display: flex;
+ /* width: 12px; */
+ height: 15px;
+ margin: 5px;
+ cursor: pointer;
+ text-align: center;
+ color: #222222;
+ border-radius: 15px;
+ background-color: transparent;
+ box-shadow: 0 0 15px #000000;
+}
+
+.indicator {
+ border: 3px solid rgba(168, 168, 168, 0.856);
+ min-width: 15px;
+}
+
+.indicator.active {
+ box-shadow: 0 0 15px white;
+ border: 3px solid rgba(255, 252, 252, 0.927);
+}

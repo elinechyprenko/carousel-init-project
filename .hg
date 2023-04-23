@@ -1,0 +1,102 @@
+//паттарн модуль - используется для того, что-бы была локальная видимость переменных. если мы инициализируем переменную js в html коде, которая используется здесь - ошибки не будет
+// (function () {
+// const container = document.querySelector('#carousel')
+// const slides = container.querySelectorAll('.slide');
+// const indicatorsContainer = container.querySelector('#indicators-container')
+// const indicators = indicatorsContainer.querySelectorAll('.indicator')
+// const pauseBtn = container.querySelector('#pause');
+// const prevBtn = container.querySelector('#prev');
+// const nextBtn = container.querySelector('#next');
+
+// let currentSlides = 0;
+// let slidesCount = slides.length;
+// let timerID = null;
+// let isPlaying = true //состояние воспроизведения слайдов
+// let swipeStartX = null;
+// let swipeEndX = null;
+
+// const CODE_SPACE = "Space";
+// const CODE_ARROW_LEFT = 'ArrowLeft'
+// const CODE_ARROW_RIGHT = 'ArrowRight'
+
+// function goToSlide(n) {
+//   slides[currentSlides].classList.toggle('active')
+//   indicators[currentSlides].classList.toggle('active')
+// console.log(slides[currentSlides]);
+// if (currentSlides === 4) currentSlides = 0
+// else currentSlides++
+//               проверка +1, что-бы не достигалось 5
+//   currentSlides = (n + slidesCount) % slidesCount;
+//   slides[currentSlides].classList.toggle('active');
+//   indicators[currentSlides].classList.toggle('active');
+// }
+// const prevSlide = () => goToSlide(currentSlides - 1);
+
+// const nextSlide = () => goToSlide(currentSlides + 1)
+
+// function prev() {
+//   prevSlide();
+//   pause();
+// }
+
+// function next() {
+//   nextSlide();
+//   pause();
+// }
+
+// function pause() {
+//   if (isPlaying) {
+//     pauseBtn.innerHTML = 'Play';
+//     isPlaying = false;
+//     clearInterval(timerID);
+//   }
+// }
+
+// function play() {
+//   pauseBtn.innerHTML = 'Pause';
+//   isPlaying = true;
+//   timerID = setInterval(nextSlide, 3000);
+// }
+// const pausePlayBtn = () => isPlaying ? pause() : play();
+
+//contains - проверка
+// function indicate(e) {
+//   const target = e.target;
+//   if (target && target.classList.contains('indicator')) { //условие, что-бы мы не тыкали на родителя indicatorsContainer, и что target не undefined
+//     pause();
+// + делаем цифрой, а так data-slide-to - это string
+// console.log(+target.getAttribute('data-slide-to'))
+// console.log(+target.dataset.slideTo)
+// goToSlide(конкретный номер - 1)
+//     goToSlide(+target.dataset.slideTo)
+//   }
+// }
+
+// function pressKey(e) {
+//   console.log(e)
+//   if(e.code === CODE_ARROW_LEFT) prev();
+//   if (e.code === CODE_ARROW_RIGHT) next()
+//   if (e.code === CODE_SPACE) pausePlayBtn();
+// }
+
+// const swipeStart = (e) =>swipeStartX = e.changedTouches[0].clientX //changedTouches
+// function swipeEnd(e){
+//   swipeEndX = e.changedTouches[0].clientX;
+//   console.log(swipeEndX);
+//   if (swipeStartX - swipeEndX > 100 ) next();
+//   if (swipeStartX - swipeEndX < -100) prev();
+// }
+// function initListeners() {
+// pauseBtn.addEventListener('click', pausePlayBtn);
+// nextBtn.addEventListener('click', next);
+// prevBtn.addEventListener('click', prev);
+// indicatorsContainer.addEventListener('click', indicate);
+// document.addEventListener('keydown', pressKey);
+// container.addEventListener('touchstart', swipeStart);
+// container.addEventListener('touchend', swipeEnd);
+// }
+// function init() {
+// initListeners()
+// timerID = setInterval(nextSlide, 3000);
+// }
+// init()
